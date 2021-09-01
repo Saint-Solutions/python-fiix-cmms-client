@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-woocommerce
+Fiix CMMS API Client
 ~~~~~~~~~~~~~~~
 A Python wrapper for the Fiix CMMS API
 :copyright: (c) 2021 by Ronald Langeved.
@@ -9,7 +9,7 @@ A Python wrapper for the Fiix CMMS API
 """
 
 __title__ = "python fiix client"
-__version__ = "1.0.0"
+__version__ = "1.1"
 __author__ = "Ronald Langeveld"
 __license__ = "MIT"
 

@@ -1,15 +1,22 @@
-from distutils.core import setup
+from setuptools import setup
+
+# read the contents of your README file
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
   name = 'fiixclient',         # How you named your package folder (MyLib)
   packages = ['fiixclient'],   # Chose the same as "name"
-  version = '1.0',      # Start with a small number and increase it with every change you make
+  version = '1.1',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'An easy to use Python wrapper for the Fiix CMMS API',   # Give a short description about your library
+  long_description=long_description,
+  long_description_content_type='text/markdown',
   author = 'Ronald Langeveld',                   # Type in your name
   author_email = 'hi@ronaldlangeveld.com',      # Type in your E-Mail
   url = 'https://www.ronaldlangeveld.com',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/ronaldlangeveld/python-fiix-cmms-client/archive/refs/tags/Beta.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/ronaldlangeveld/python-fiix-cmms-client/archive/refs/tags/Latest.tar.gz',    # I explain this later on
   keywords = ['FIIX', 'CMMS', 'API', 'MAINTENANCE'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'requests',
