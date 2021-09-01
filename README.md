@@ -76,4 +76,4 @@ Refer to the [documentation](https://fiixlabs.github.io/api-documentation/guide-
 
 ## License
 
-see LICENSE.txt and NOTICE.txt for more information.
+see LICENSE for more information.
