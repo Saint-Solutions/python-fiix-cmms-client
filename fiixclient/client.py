@@ -4,7 +4,7 @@ import hmac
 import json
 
 
-class Client(object):
+class FiixClient(object):
     def __init__(self, subdomain, api_key, access_key, api_secret, version):
         self.version = version
         self.subdomain = subdomain
