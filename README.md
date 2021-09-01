@@ -1,4 +1,4 @@
-# Fiix CMMS client for JavaScript
+# Fiix CMMS client for Python
 
 The unofficial [Fiix CMMS](https://www.fiixsoftware.com) client for Python.
 
