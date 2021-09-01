@@ -3,8 +3,10 @@ import hashlib
 import hmac
 import json
 
+
 class Client(object):
-    def __init__(self, subdomain, api_key, access_key, api_secret):
+    def __init__(self, subdomain, api_key, access_key, api_secret, version):
+        self.version = version
         self.subdomain = subdomain
         self.api_key = api_key
         self.access_key = access_key
@@ -14,12 +16,11 @@ class Client(object):
         self.msg_url = self.base_url.replace("https://", "")
         self.sig = hmac.new(self.api_secret.encode('utf-8'),
                             self.msg_url.encode('utf-8'), hashlib.sha256).hexdigest()
-    # Generate HMAC Authorization String
 
     def _default_headers(self):
         headers = {
             "Authorization": self.sig,
-            "Content-Type": "text/plain"
+            "Content-Type": "text/plain;charset=utf-8"
         }
 
         return headers
@@ -28,14 +29,46 @@ class Client(object):
         r = requests.post(self.base_url, data=body,
                           headers=self._default_headers())
 
-        return r.json()
+        return r
 
-    def find(self, context):
-        find_body = {
-            "_maCn": "FindRequest",
-            "clientVersion": {"major": 2, "minor": 8, "patch": 1},
-            "className": "User",
-            "fields": "id, strUserName, strFullName, strUserTitle, intUserStatusID, strPersonnelCode, cf_intSiteIDs"
-        }
+    def create(self, context):
+        req_type = '{"_maCn": "AddRequest"}'
+        ld = json.loads(req_type)
+        ld.update(self.version)
+        ld.update(context)
 
-        return self.__request(json.dumps(find_body))
+        return self.__request(json.dumps(ld))
+
+
+    def retrieve(self, context):
+        req_type = '{"_maCn": "FindRequest"}'
+        ld = json.loads(req_type)
+        ld.update(self.version)
+        ld.update(context)
+
+        return self.__request(json.dumps(ld))
+
+    def update(self, context):
+        req_type = '{"_maCn": "ChangeRequest"}'
+        ld = json.loads(req_type)
+        ld.update(self.version)
+        ld.update(context)
+
+        return self.__request(json.dumps(ld))
+
+
+    def delete(self, context):
+        req_type = '{"_maCn": "RemoveRequest"}'
+        ld = json.loads(req_type)
+        ld.update(self.version)
+        ld.update(context)
+
+        return self.__request(json.dumps(ld))
+
+    def batch(self, context):
+        req_type = '{"_maCn": "BatchRequest"}'
+        ld = json.loads(req_type)
+        ld.update(self.version)
+        ld.update(context)
+
+        return self.__request(json.dumps(ld))
