@@ -1,6 +1,6 @@
 # Fiix CMMS client for Python
 
-The unofficial [Fiix CMMS](https://www.fiixsoftware.com) client for Python.
+An easy to use [Fiix CMMS](https://www.fiixsoftware.com) wrapper for Python.
 
 ## Installation
 
