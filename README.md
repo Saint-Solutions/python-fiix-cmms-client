@@ -77,3 +77,11 @@ Refer to the [documentation](https://fiixlabs.github.io/api-documentation/guide-
 ## License
 
 see LICENSE for more information.
+
+## Trusted by
+
+[C. Steinweg Group](https://www.steinweg.com/en/worldwide-offices/)
+
+[Saint Solutions Africa](https://www.saintsolutions.co.za)
+
+
