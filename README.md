@@ -84,4 +84,6 @@ see LICENSE for more information.
 
 [Saint Solutions Africa](https://www.saintsolutions.co.za)
 
+[Compagnie Fruitère](https://www.fruitiere.com)
+
 
